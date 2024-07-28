@@ -13,29 +13,28 @@ import {
 } from "@mui/material";
 
 import { PhotoCamera } from "@mui/icons-material";
-import useStyles from "./styles";
 
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 function App() {
-  const classes = useStyles();
   return (
     <>
       <CssBaseline />
       <AppBar position="relative">
         <Toolbar>
-          <PhotoCamera className={classes.icon} />
+          <PhotoCamera style={{ marginRight: "20px" }} />
           <Typography variant="h6">Photo Album</Typography>
         </Toolbar>
       </AppBar>
       <main>
-        <div className={classes.container}>
+        <div>
           <Container maxWidth="sm">
             <Typography
               variant="h2"
               align="center"
               color="textPrimary"
               gutterBottom
+              marginTop={"20px"}
             >
               Photo Album
             </Typography>
@@ -49,8 +48,12 @@ function App() {
               nobis aut cupiditate pariatur harum nihil animi qui est quo
               tenetur?
             </Typography>
-            <div className={classes.buttons}>
-              <Grid container spacing={2} justify="center">
+            <div style={{ marginTop: "40px" }}>
+              <Grid
+                container
+                spacing={2}
+                style={{ justifyContent: "center", alignItems: "center" }}
+              >
                 <Grid item>
                   <Button variant="contained" color="primary">
                     See My Photos
@@ -65,17 +68,25 @@ function App() {
             </div>
           </Container>
         </div>
-        <Container className={classes.cardGrid} max-width="md">
+        <Container style={{ padding: "20px 0" }} max-width="md">
           <Grid container spacing={4}>
             {cards.map((card) => (
               <Grid item key={card} xs={12} sm={6} md={4}>
-                <Card className={classes.card}>
+                <Card
+                  style={{
+                    height: "100%",
+                    display: "flex",
+                    flexDirection: "column",
+                  }}
+                >
                   <CardMedia
-                    className={classes.cardMedia}
-                    image="https://source.unsplash.com/random"
+                    style={{
+                      paddingTop: "56.25%",
+                    }}
+                    image="https://picsum.photos/1000/1000"
                     title="Image title"
                   />
-                  <CardContent className={classes.cardContent}>
+                  <CardContent style={{ flexGrow: 1 }}>
                     <Typography gutterBottom variant="h5">
                       Heading
                     </Typography>
@@ -98,7 +109,12 @@ function App() {
           </Grid>
         </Container>
       </main>
-      <footer className={classes.footer}>
+      <footer
+        style={{
+          padding: "50px 0",
+          background: "#eee",
+        }}
+      >
         <Typography variant="h6" align="center" gutterBottom>
           Footer
         </Typography>
